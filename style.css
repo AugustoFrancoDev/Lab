@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100&family=Roboto&display=swap');
+
+*{
+    margin :0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.cabecalho {
+    display: flex; /* para colocar o logo e a lista um do lado do outro */
+    justify-content: space-around; /* faz com que o espaço ao redor seja a metade do espaço entre eles */
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    background: #464141;
+    height: 8vh;
+}
+
+.conteudo {
+    background: radial-gradient(67.43% 70.66% at 50% 50%, #494242 0%, rgba(30, 29, 29, 0.96072) 47.98%, rgba(41, 37, 37, 0.878837) 88.37%, rgba(50, 47, 47, 0) 100%) no-repeat center center;
+
+    background-size: cover; /* Usado para caso a resolução do monitor for maior que a da imagem */
+    height: 84vh;
+}
+
+.cabecalho-menu {
+    list-style: none;
+    display: flex;
+}
+
+.cabecalho-menu-item {
+    letter-spacing: 3px;
+    margin-left: 32px;
+    color: #BDBDBD;
+}
+
+.cabecalho-titulo {
+    letter-spacing: 3px;
+    word-spacing: 10px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 72px;
+    line-height: 72px;
+    text-transform: capitalize;
+    color: #BC4747;
+}
+
+.menu-mobile {
+    cursor: pointer;
+    display:none; /* Para só aparecer em telas menores */
+}
+
+.menu-mobile div {
+    width: 32px;
+    height: 2px;
+    background: #BDBDBD;
+    margin: 8px
+}
+
+@media (max-width: 999px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .cabecalho-menu {
+        position: absolute; /* posicionar navegação onde quiser */
+        top: 8vh;
+        right: 0;
+        width: 50vw;
+        height: 84vh;
+        background: #464141;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        transform: translateX(100%); /* Navegação foi para fora da borda */
+        transition: transform 0.3s ease-in;
+    }
+
+    .cabecalho-menu-item {
+        margin-left: 0;
+        opacity: 0;        
+    }
+
+   
+    .menu-mobile {
+        display: block;
+    }
+
+    .cabecalho-menu.active {
+        transform: translateX(0);
+    }
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(0);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(50px);
+    }
+}
