@@ -5,11 +5,10 @@
     padding: 0;
     text-decoration: none;
 }
-
-html, body {
+ 
+html, body{
     overflow-x: hidden;
     overflow-y: hidden;
-    box-sizing: border-box;
   }
   
 .cabecalho {
@@ -23,7 +22,7 @@ html, body {
 
 .conteudo {
     background: radial-gradient(131.28% 259.62% at 66.28% 50%, #855252 0%, rgba(30, 29, 29, 0.96072) 47.98%, rgba(34, 32, 32, 0.93188) 68.67%, rgba(41, 37, 37, 0.878837) 88.37%, rgba(50, 47, 47, 0) 100%);
-    background-size: cover; /* Usado para caso a resolução do monitor for maior que a da imagem */
+    background-size: cover; /* Usado para caso a resolução do monitor for maior que a da imagem imagem */
     height: 84vh;
     width: 100%;
     display: grid;
@@ -35,6 +34,11 @@ html, body {
     font-size: 2vh;
     line-height: 2vh;
     color: #BDBDBD;
+    justify-items: center;
+    place-items: center;
+    grid-template-areas:
+        "texto1 imagem imagem"
+        "texto2 imagem imagem"
     ;
 }
 
@@ -47,6 +51,13 @@ html, body {
     letter-spacing: 3px;
     margin-left: 32px;
     color: #BDBDBD;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.cabecalho-menu-item:hover {
+    color: #F3ECEC;
+    transition-duration: 0.4s;
 }
 
 .cabecalho-titulo {
@@ -54,7 +65,7 @@ html, body {
     word-spacing: 10px;
     font-style: normal;
     font-weight: normal;
-    font-size: 72px;
+    font-size: 52px;
     line-height: 72px;
     text-transform: capitalize;
     color: #BC4747;
@@ -65,6 +76,7 @@ html, body {
     display:none; /* Para só aparecer em telas menores */
 }
 
+
 .menu-mobile div {
     width: 32px;
     height: 2px;
@@ -73,11 +85,29 @@ html, body {
     transition: 0.3s;
     }
 
-@media (max-width: 999px) {
-    body {
-        overflow-x: hidden;
+    .menu-mobile:hover div {
+        background: #F3ECEC;
+        transition-duration: 0.4s;
     }
 
+@media (max-width: 999px) {
+    body {
+      overflow-x: hidden;
+      position:relative; /* Parece ter resolvido o problema do overflow */
+    }
+
+    .conteudo {
+        background-size: cover; /* Usado para caso a resolução do monitor for maior que a da imagem imagem */
+        height: 84vh;
+        width: 100%;
+        place-items: center;
+        display: grid;
+        grid-template-areas:
+       "texto1 texto1"
+       "texto2 texto2"
+       "imagem imagem"
+        ;
+    }
     .cabecalho-menu {
         position: absolute; /* posicionar navegação onde quiser */
         top: 8vh;
@@ -94,7 +124,8 @@ html, body {
 
     .cabecalho-menu-item {
         margin-left: 0;
-        opacity: 0;        
+        opacity: 0;      
+        font-size: 10px;  
     }
 
    
@@ -102,9 +133,32 @@ html, body {
         display: block;
     }
 
+
     .cabecalho-menu.active {
         transform: translateX(0);
     }
+
+     .conteudo-direita {
+      height: 30vh;
+    }
+
+    .conteudo-esquerda-cima {
+        text-align: center !important;
+    }
+    
+    .cabecalho-titulo {
+        height: 6vh;
+        font-size: 36px;
+        line-height: 72px;
+    }
+
+    .rodape-texto {
+        height: 6vh;
+        font-size: 36px !important;
+        line-height: 72px;
+    }
+            
+
 }
 
 @keyframes navLinkFade {
@@ -132,48 +186,33 @@ html, body {
 
 
 .rodape {
-    text-align: center;
-    display: flex;
-    align-items: space-around;
     background: #464141;
     height: 8vh;
 }
 .rodape-texto {
-    text-align: center;
-    width: 100%;
     letter-spacing: 3px;
     word-spacing: 10px;
     font-style: normal;
     font-weight: normal;
-    font-size: 72px;
+    font-size: 52px;
     line-height: 72px;
     text-transform: capitalize;
     color: #BC4747;
+    text-align: center;
 }
     
 .conteudo-esquerda-cima {
-grid-column: 1/1;
-grid-row: 1/1;
-justify-self: center;
-align-self: center;
-justify-content: center;
-width: 60vh;
+    grid-area: texto1;
+    text-align: left;
+
 }
 
 .conteudo-esquerda-baixo {
-    justify-self: center;
-    align-self: center;
-    grid-row: 2/2;
-    grid-column: 1/1;
-    align-items: end;
+    grid-area: texto2;
+
 }
 
 .conteudo-direita {
-    grid-column: 2/2;
-    grid-row: 1/ span 2;
-    justify-self: center;
-    align-self: center;
-    place-self:center;
-    width: 60vh;
-    height: 60vh;
+    grid-area: imagem;
+
 }
