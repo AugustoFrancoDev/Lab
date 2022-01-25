@@ -7,12 +7,13 @@
 }
 
 html, body {
-  overflow-x: hidden;
-}
-body {
-  position: relative
-}
-
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+  body {
+    position: relative
+  }
+  
 .cabecalho {
     display: flex; /* para colocar o logo e a lista um do lado do outro */
     justify-content: space-around; /* faz com que o espaço ao redor seja a metade do espaço entre eles */
@@ -60,8 +61,9 @@ body {
     width: 32px;
     height: 2px;
     background: #BDBDBD;
-    margin: 8px
-}
+    margin: 8px;
+    transition: 0.3s;
+    }
 
 @media (max-width: 999px) {
     body {
@@ -100,10 +102,44 @@ body {
 @keyframes navLinkFade {
     from {
         opacity: 0;
-        transform: translateX(0);
+        transform: translateX(50px);
     }
     to{
         opacity: 1;
-        transform: translateX(50px);
+        transform: translateX(0);
     }
 }
+
+.menu-mobile.active .line1 {
+    transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.menu-mobile.active .line2 {
+    opacity: 0;
+}
+
+.menu-mobile.active .line3 {
+    transform: rotate(45deg) translate(-5px, -7px);
+}
+
+
+.rodape {
+    text-align: center;
+    display: flex;
+    align-items: space-around;
+    background: #464141;
+    height: 8vh;
+}
+.rodape-texto {
+    text-align: center;
+    width: 100%;
+    letter-spacing: 3px;
+    word-spacing: 10px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 72px;
+    line-height: 72px;
+    text-transform: capitalize;
+    color: #BC4747;
+}
+    
