@@ -45,6 +45,7 @@ html, body{
 .cabecalho-menu {
     list-style: none;
     display: flex;
+    align-items: center !important;
 }
 
 .cabecalho-menu-item {
