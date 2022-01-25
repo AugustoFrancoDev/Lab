@@ -67,7 +67,7 @@ html, body{
     font-style: normal;
     font-weight: normal;
     font-size: 52px;
-    line-height: 72px;
+    line-height: 6vh;
     text-transform: capitalize;
     color: #BC4747;
 }
@@ -94,6 +94,7 @@ html, body{
 @media (max-width: 999px) {
     body {
       overflow-x: hidden;
+
       position:relative; /* Parece ter resolvido o problema do overflow */
     }
 
@@ -148,15 +149,13 @@ html, body{
     }
     
     .cabecalho-titulo {
-        height: 6vh;
-        font-size: 36px;
-        line-height: 72px;
+        font-size: 20px;
+        line-height: 6vh;
     }
 
     .rodape-texto {
-        height: 6vh;
-        font-size: 36px !important;
-        line-height: 72px;
+        font-size: 20px !important;
+        line-height: 6vh;
     }
             
 
@@ -196,7 +195,7 @@ html, body{
     font-style: normal;
     font-weight: normal;
     font-size: 52px;
-    line-height: 72px;
+    line-height: 6vh;
     text-transform: capitalize;
     color: #BC4747;
     text-align: center;
@@ -216,4 +215,15 @@ html, body{
 .conteudo-direita {
     grid-area: imagem;
 
+}
+
+@media (max-width: 400px) {
+    .cabecalho-titulo {
+        font-size: 20px;
+        height: 6vh;
+    }
+    
+    .rodape-texto{
+        font-size: 20px
+    }
 }
